@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.network.login(value).subscribe(
       data => {
         const aux: any = data;
-        console.log(aux);
+        // console.log(aux);
         let admin = false;
         if (jwt_decode(aux.body.token).admin == true) {
           admin = true;

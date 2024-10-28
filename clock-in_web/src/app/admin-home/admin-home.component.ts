@@ -163,7 +163,7 @@ export class AdminHomeComponent implements OnInit {
         this.users = users;
       },
       error => {
-        console.log(error);
+        // console.log(error);
         this.errorService
           .error(error, {
             401: "Acceso denegado. La sesión ha expirado.",
@@ -202,7 +202,7 @@ export class AdminHomeComponent implements OnInit {
       value["user"] = this.selectedUser.username;
       this.network.clocksBetweenDates(value).subscribe(
         data => {
-          console.log(data);
+          // console.log(data);
           const aux: any = data;
           this.selectedUser = {
             username: this.selectedUser.username,
@@ -269,7 +269,7 @@ export class AdminHomeComponent implements OnInit {
           this.dataSourceClock.paginator = this.paginator;
         },
         error => {
-          console.log(error);
+          // console.log(error);
           this.errorService
             .error(error, {
               400: "Las fechas elegidas no son válidas.",
@@ -401,7 +401,7 @@ export class AdminHomeComponent implements OnInit {
     const dialogRef = this.dialog.open(IssueDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(data => {
-      console.log(data);
+      // console.log(data);
       if (data === "ok") {
         this.clocksBetweenDates(this.clockDatesForm.value);
       }
@@ -432,7 +432,7 @@ export class AdminHomeComponent implements OnInit {
               });
             },
             error => {
-              console.log(error);
+              // console.log(error);
               this.errorService
                 .error(error, {
                   400: "El identificador de la incidencia no es válido.",
@@ -475,7 +475,7 @@ export class AdminHomeComponent implements OnInit {
               });
             },
             error => {
-              console.log(error);
+              // console.log(error);
               this.errorService
                 .error(error, {
                   400: "El identificador del fichaje no es válido.",
@@ -505,7 +505,7 @@ export class AdminHomeComponent implements OnInit {
     const dialogRef = this.dialog.open(AdminClockDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(data => {
-      console.log(data);
+      // console.log(data);
       if (data === "ok") {
         this.clocksBetweenDates(this.clockDatesForm.value);
       }

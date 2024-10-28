@@ -1,5 +1,12 @@
 <div class="app-header">
-    <h1 class="app-heading">{{ title }} <img style="vertical-align: bottom;" width="64" src="assets/img/DIPC_logo.png" alt="DIPC"></h1>
-  </div>
-  
+  <mat-grid-list cols="1" rowHeight="8vh">
+    <mat-grid-tile>
+      <h1 class="app-heading" style="margin-right: 5px; font-size: 6vh;">{{ title }} </h1>
+      <img style="display: block; max-height: 50px; width:auto; height:auto; margin-left:5px"
+        src="assets/img/DIPC_logo.png" alt="DIPClogo">
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
 <router-outlet></router-outlet>

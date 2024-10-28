@@ -9,7 +9,7 @@ import * as moment from 'moment';
 export class NetworkService {
 
   protocol = 'http://';
-  webserver = 'localhost:8080';
+  webserver = 'fichaje.sw.ehu.es:8080';
   api = '';
   httpOptions: any = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
@@ -50,8 +50,8 @@ export class NetworkService {
     body.set('text', value.text);
     body.set('nInDate', value.nInDate);
     body.set('nOutDate', value.nOutDate);
-    console.log(value);
-    console.log(body.toString());
+    // console.log(value);
+    // console.log(body.toString());
     let options = this.httpOptions;
     options.observe = 'response' as "body";
     return this.http.post(this.protocol + this.webserver + this.api + '/issue', body.toString(), options);

@@ -67,7 +67,7 @@ export class AdminClockDialogComponent implements OnInit {
         this.dialogRef.close("ok");
       },
       error => {
-        console.log(error);
+        // console.log(error);
         this.errorService
           .error(error, {
             400: "Los campos introducidos no son válidos.",

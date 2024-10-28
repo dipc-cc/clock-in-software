@@ -1,6 +1,8 @@
-<mat-grid-list cols="3">
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile class="login-element">
+<div class="flex-row-container">
+  <div class="flex-row-item"></div>
+  <div class="flex-row-item"></div>
+  <!-- Writing markup for login starts -->
+  <div class="flex-row-item login-element">
     <div class="login-container">
       <form>
         <div class="login-box-body" style="color:black">
@@ -8,21 +10,22 @@
             Conectado como <strong>{{ username }}</strong>
           </p>
           <div *ngIf="isValidDate(date)" style="text-align: center;">
-            <p>{{ type === "in" ? "Entraste" : "Saliste" }} por última vez:</p>
-            <p>{{ date | date: "medium" }}</p>
+            <p>Último {{ type === "in" ? "fichaje" : "desfichaje" }}:</p>
+            <p *ngIf="type === 'in'" style="color:green"><strong>{{ date | date: "medium" }}</strong></p>
+            <p *ngIf="type === 'out'" style="color:red"><strong>{{ date | date: "medium" }}</strong></p>
           </div>
           <button mat-raised-button [disabled]="disableButtons" class="in-button" (click)="clock('in')">
-            Fichar
+            <span class="button_text">FICHAR</span> 
           </button>
           <button mat-raised-button [disabled]="disableButtons" class="out-button" (click)="clock('out')">
-            Desfichar
+            <span class="button_text">DESFICHAR</span> 
           </button>
           <br />
           <br />
           <button mat-raised-button class="login-button" (click)="issue()">
             Incidencia
           </button>
-          <br/>
+          <br />
           <div *ngIf="admin">
             <br />
             <button mat-raised-button class="login-button" (click)="adminHome()">
@@ -31,12 +34,12 @@
             <br />
           </div>
           <div *ngIf="!admin">
-              <br />
-              <button mat-raised-button class="login-button" (click)="clockHistory()">
-                Historial de fichajes
-              </button>
-              <br />
-            </div>
+            <br />
+            <button mat-raised-button class="login-button" (click)="clockHistory()">
+              Historial de fichajes
+            </button>
+            <br />
+          </div>
           <br />
           <button mat-raised-button class="login-button" (click)="logout()">
             Desconectar
@@ -44,6 +47,8 @@
         </div>
       </form>
     </div>
-  </mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-</mat-grid-list>
+  </div>
+  <div class="flex-row-item"></div>
+  <div class="flex-row-item"></div>
+  <!-- Writing markup for login ends -->
+</div>

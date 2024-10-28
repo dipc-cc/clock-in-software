@@ -33,11 +33,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   clock(value) {
-    console.log(value);
+    // console.log(value);
     this.disableButtons = true;
     this.network.clock(value).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         setTimeout(() => {
           this.disableButtons = false;
         }, 1000);
@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
         });
       },
       error => {
-        console.log(error);
+        // console.log(error);
         setTimeout(() => {
           this.disableButtons = false;
         }, 1000);

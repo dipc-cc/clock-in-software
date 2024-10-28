@@ -218,7 +218,7 @@ export class ClockHistoryComponent implements OnInit {
           this.dataSourceClock.paginator = this.paginator;
         },
         error => {
-          console.log(error);
+          // console.log(error);
           this.errorService
             .error(error, {
               400: "Las fechas elegidas no son válidas",

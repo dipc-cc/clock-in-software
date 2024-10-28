@@ -90,7 +90,9 @@
                   *matCellDef="let clock"
                   [ngClass]="
                     !clock.inIp.includes('158.227.172.') &&
-                    !clock.inIp.includes('158.227.173.')
+                    !clock.inIp.includes('158.227.173.') &&
+                    !clock.inIp.includes('10.227.172.') &&
+                    !clock.inIp.includes('10.227.173.')
                       ? 'yellow'
                       : ''
                   "
@@ -111,7 +113,9 @@
                   *matCellDef="let clock"
                   [ngClass]="
                     !clock.outIp.includes('158.227.172.') &&
-                    !clock.outIp.includes('158.227.173.')
+                    !clock.outIp.includes('158.227.173.') &&
+                    !clock.inIp.includes('10.227.172.') &&
+                    !clock.inIp.includes('10.227.173.')
                       ? 'yellow'
                       : ''
                   "
@@ -180,7 +184,9 @@
                 *matCellDef="let clock"
                 [ngClass]="
                   !clock.inIp.includes('158.227.172.') &&
-                  !clock.inIp.includes('158.227.173.')
+                  !clock.inIp.includes('158.227.173.') &&
+                  !clock.inIp.includes('10.227.172.') &&
+                  !clock.inIp.includes('10.227.173.')
                     ? 'yellow'
                     : ''
                 "
@@ -203,7 +209,9 @@
                 *matCellDef="let clock"
                 [ngClass]="
                   !clock.outIp.includes('158.227.172.') &&
-                  !clock.outIp.includes('158.227.173.')
+                  !clock.outIp.includes('158.227.173.') &&
+                  !clock.inIp.includes('10.227.172.') &&
+                  !clock.inIp.includes('10.227.173.')
                     ? 'yellow'
                     : ''
                 "

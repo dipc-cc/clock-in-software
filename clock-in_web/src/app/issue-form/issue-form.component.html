@@ -1,6 +1,8 @@
-<mat-grid-list cols="3">
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile class="login-element">
+<div class="flex-row-container">
+  <div class="flex-row-item"></div>
+  <div class="flex-row-item"></div>
+  <!-- Writing markup for login starts -->
+  <div class="flex-row-item login-element">
     <div class="login-container">
       <form [formGroup]="issueForm">
         <div class="login-box-body" style="color:black">
@@ -44,6 +46,8 @@
         </div>
       </form>
     </div>
-  </mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-</mat-grid-list>
+  </div>
+  <div class="flex-row-item"></div>
+  <div class="flex-row-item"></div>
+  <!-- Writing markup for login ends -->
+</div>
