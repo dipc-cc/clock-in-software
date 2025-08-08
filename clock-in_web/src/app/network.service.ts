@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 import * as moment from 'moment';
 
@@ -8,9 +9,9 @@ import * as moment from 'moment';
 })
 export class NetworkService {
 
-  protocol = 'http://';
-  webserver = 'fichaje.sw.ehu.es:8080';
-  api = '';
+  protocol = environment.protocol;
+  webserver = environment.webserver;
+  api = environment.api;
   httpOptions: any = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
     observe: 'body' as "body"

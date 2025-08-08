@@ -15,6 +15,7 @@ var express = require('express'),
   { exec } = require('child_process'),
   bunyan = require('bunyan'),
   LdapStrategy = require('passport-ldapauth');
+var conf = require('./config.json');
 
 // LDAP strategy
 var primaryLDAP = {
@@ -61,7 +62,7 @@ secondaryLDAP.server.bindCredentials = pass_file.ldap;
 const rsa_public_key = fs.readFileSync('./jwtRS256.key.pub', 'utf8');
 
 // Mariadb connection options
-const db_opts = { host: 'localhost', user: 'noadmin', password: pass_file.mariadb, database: 'clocks' };
+const db_opts = { host: conf.mariadb_host, user: 'noadmin', password: pass_file.mariadb, database: 'clocks' };
 
 // Bunyan logger
 const log = bunyan.createLogger({
@@ -347,7 +348,7 @@ app.post('/issueform', async (req, res, next) => {
 
       transporter.sendMail({
         from: '"Incidencias DIPC" <incidencias@dipc.org>', // sender address
-        to: 'incidencias@dipc.org', // list of receivers
+        to: conf.email_to, // list of receivers
         subject: 'Incidencia' + fullname, // Subject line
         html: '<h1>Incidencia de' + fullname + '</h1>' +
           '<p>Fecha de la incidencia: ' + date.format('DD/MM/YYYY') + '</p>' +
