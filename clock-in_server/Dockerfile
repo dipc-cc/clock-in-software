@@ -1,7 +1,5 @@
-# con nada más nuevo que la 14 no funciona el login, pero en la 14 no podemos instalar ldapsearch
-#FROM node:20.19-bullseye
+# con nada más nuevo que la 14 no funciona el login, en la 14-alpine podemos instalar ldapsearch
 FROM node:14.0-alpine
-#FROM node:14.0
 
 WORKDIR /opt/clock-in_server
 
@@ -23,12 +21,6 @@ RUN npm install -g pm2
 
 # Install Bunyan for logging
 RUN npm install bunyan -g
-
-#RUN apt install -y ldap-utils
-#RUN wget http://ftp.ca.debian.org/debian/pool/main/o/openldap/libldap-2.4-2_2.4.57+dfsg-3+deb11u1_amd64.deb
-#RUN dpkg -i libldap-2.4-2_2.4.57+dfsg-3+deb11u1_amd64.deb
-#RUN wget http://ftp.ca.debian.org/debian/pool/main/o/openldap/ldap-utils_2.4.57+dfsg-3+deb11u1_amd64.deb
-#RUN dpkg -i ldap-utils_2.4.57+dfsg-3+deb11u1_amd64.deb
 
 # Expose the API port
 EXPOSE 8080
