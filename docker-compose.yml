@@ -1,0 +1,56 @@
+services:
+  db:
+    image: mariadb:10.5
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: clocks
+      MYSQL_USER: noadmin
+      MYSQL_PASSWORD: clockpass
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  backend:
+    build:
+      context: ./clock-in_server
+    container_name: backend
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: noadmin
+      DB_PASS: clockpass
+      DB_NAME: clocks
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${PWD}/.password.key.json:/opt/clock-in_server/password.key.json
+      - ${PWD}/jwtRS256.key:/opt/clock-in_server/jwtRS256.key
+      - ${PWD}/jwtRS256.key.pub:/opt/clock-in_server/jwtRS256.key.pub
+      - ${PWD}/config.dev.json:/opt/clock-in_server/config.json
+
+  # Nginx + Angular Frontend
+  frontend:
+    build:
+      context: ./clock-in_web
+      dockerfile: Dockerfile
+    container_name: clockin-web
+    depends_on:
+      - backend
+    volumes:
+      - ./clock-in_web:/var/www/html
+    ports:
+      - "80:80"
+    networks:
+      - clockin-network
+    restart: unless-stopped
+
+volumes:
+  db_data:
+
+networks:
+  clockin-network:
+    driver: bridge
