@@ -1,3 +1,4 @@
+config.dev.json
 jwtRS256.key*
 .password.key.json
 # Other files
