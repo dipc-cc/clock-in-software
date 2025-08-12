@@ -335,7 +335,13 @@ app.post('/issueform', async (req, res, next) => {
       if (err) {
         error(err, 'Exec command error', 500, req.ip, res);
       }
-      var fullname = stdout;
+      let fullname;
+      console.log(stdout.length);
+      if (stdout == ' ') {
+        fullname = stdout;
+      } else {
+        fullname = ' ' + req.user.user;
+      }
       let transporter = nodemailer.createTransport({
         host: 'smtp.serviciodecorreo.es',
         port: 465,
