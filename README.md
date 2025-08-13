@@ -8,6 +8,7 @@ A software that will track it's users' clock-in and clock-out times.
     - [Requirements](#requirements)
     - [Installing](#installing)
     - [Automatic database backup](#automatic-database-backup)
+    - [Local testing](#local-testing)
   - [Contributing](#contributing)
   - [Authors](#authors)
   - [License](#license)
@@ -189,6 +190,43 @@ password = rootpass
 # firewall-cmd --reload
 ```
 
+### Local testing
+
+If you want to test any change locally, there are two Dockerfiles, one for the
+backend and one for the frontend, and a docker-compose.yml file that would
+allow you to build a local testing system.
+
+First, you'll need to have a `config.dev.json` with this format at the root of
+your repository:
+
+```json
+{
+    "email_to": "YOUR_EMAIL@dipc.org",
+    "mariadb_host": "db"
+}
+
+```
+
+To build the docker compose execute the following:
+
+```bash
+docker compose up -d --build
+```
+
+This will launch 3 containers:
+- Frontend
+- Backend
+- DB
+
+Once the containers are up and running, in order to populate the database, copy
+a backup from the production server in `/root/dbbackup` and insert it into the
+database with this command:
+
+```bash
+docker exec -i mariadb mysql -uroot -proot clocks < backup.sql
+```
+
+This system will connect to the DIPC ldap services and to your local database.
 
 ---
 
