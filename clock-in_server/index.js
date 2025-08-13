@@ -338,9 +338,9 @@ app.post('/issueform', async (req, res, next) => {
       let fullname;
       console.log(stdout.length);
       if (stdout == ' ') {
-        fullname = stdout;
-      } else {
         fullname = ' ' + req.user.user;
+      } else {
+        fullname = stdout;
       }
       let transporter = nodemailer.createTransport({
         host: 'smtp.serviciodecorreo.es',
