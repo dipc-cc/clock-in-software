@@ -2,6 +2,10 @@ module.exports = {
   apps : [{
     name: 'API fichaje',
     script: 'index.js',
+    error_file: 'err.log',
+    out_file: 'out.log',
+    log_file: 'combined.log',
+    time: true,
     cwd: '/opt/clock-in_server/',
     // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
     instances: 1,
