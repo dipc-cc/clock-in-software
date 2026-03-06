@@ -203,6 +203,18 @@ your repository:
 {
     "email_to": "YOUR_EMAIL@dipc.org",
     "mariadb_host": "db"
+    "ldap": {
+        "primaryServer": {
+            "name": "auth-01.sw.ehu.es",
+            "url": "ldap://auth-01.sw.ehu.es:389"
+        },
+        "secondaryServer": {
+            "name": "auth-02.sw.ehu.es",
+            "url": "ldap://auth-02.sw.ehu.es:389"
+        },
+        "bindDN": "cn=Directory Manager",
+        "searchBase": "cn=users,cn=accounts,dc=sw,dc=ehu,dc=es"
+    }
 }
 
 ```
@@ -227,6 +239,12 @@ docker exec -i mariadb mysql -uroot -proot clocks < backup.sql
 ```
 
 This system will connect to the DIPC ldap services and to your local database.
+
+Note: in order to connect to allow docker containers to connect to the FreeIPA servers, a shuttle may be needed:
+```bash
+sshuttle -l 0.0.0.0 -r USER@hyperion.sw.ehu.es 158.227.173.27/24
+```
+
 
 ---
 

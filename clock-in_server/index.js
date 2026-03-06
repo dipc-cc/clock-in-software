@@ -20,20 +20,20 @@ var conf = require('./config.json');
 // LDAP strategy
 var primaryLDAP = {
   server: {
-    primaryServer: 'ldap-01.sw.ehu.es',
-    url: 'ldap://ldap-01.sw.ehu.es:389',
-    bindDN: 'cn=admin,dc=sw,dc=ehu,dc=es',
-    searchBase: 'ou=users,dc=sw,dc=ehu,dc=es',
+    primaryServer: conf.ldap.primaryServer.name,
+    url: conf.ldap.primaryServer.url,
+    bindDN: conf.ldap.bindDN,
+    searchBase: conf.ldap.searchBase,
     searchFilter: '(uid={{username}})'
   }
 };
 
 var secondaryLDAP = {
   server: {
-    secondaryServer: 'ldap-02.sw.ehu.es',
-    url: 'ldap://ldap-02.sw.ehu.es:389',
-    bindDN: 'cn=admin,dc=sw,dc=ehu,dc=es',
-    searchBase: 'ou=users,dc=sw,dc=ehu,dc=es',
+    secondaryServer: conf.ldap.secondaryServer.name,
+    url: conf.ldap.secondaryServer.url,
+    bindDN: conf.ldap.bindDN,
+    searchBase: conf.ldap.searchBase,
     searchFilter: '(uid={{username}})'
   }
 };
