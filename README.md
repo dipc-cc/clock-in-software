@@ -240,6 +240,12 @@ docker exec -i mariadb mysql -uroot -proot clocks < backup.sql
 
 This system will connect to the DIPC ldap services and to your local database.
 
+Note: in order to connect to allow docker containers to connect to the FreeIPA servers, a shuttle may be needed:
+```bash
+sshuttle -l 0.0.0.0 -r USER@hyperion.sw.ehu.es 158.227.173.27/24
+```
+
+
 ---
 
 ## Contributing
