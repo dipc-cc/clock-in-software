@@ -203,6 +203,18 @@ your repository:
 {
     "email_to": "YOUR_EMAIL@dipc.org",
     "mariadb_host": "db"
+    "ldap": {
+        "primaryServer": {
+            "name": "auth-01.sw.ehu.es",
+            "url": "ldap://auth-01.sw.ehu.es:389"
+        },
+        "secondaryServer": {
+            "name": "auth-02.sw.ehu.es",
+            "url": "ldap://auth-02.sw.ehu.es:389"
+        },
+        "bindDN": "cn=Directory Manager",
+        "searchBase": "cn=users,cn=accounts,dc=sw,dc=ehu,dc=es"
+    }
 }
 
 ```

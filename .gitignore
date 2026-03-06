@@ -1,6 +1,7 @@
 config.dev.json
 jwtRS256.key*
 .password.key.json
+.password.dev.key.json
 # Other files
 mysql_secure.sh
 *private_key

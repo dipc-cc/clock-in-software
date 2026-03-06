@@ -27,7 +27,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ${PWD}/.password.key.json:/opt/clock-in_server/password.key.json
+      - ${PWD}/.password.dev.key.json:/opt/clock-in_server/password.key.json
       - ${PWD}/jwtRS256.key:/opt/clock-in_server/jwtRS256.key
       - ${PWD}/jwtRS256.key.pub:/opt/clock-in_server/jwtRS256.key.pub
       - ${PWD}/config.dev.json:/opt/clock-in_server/config.json
