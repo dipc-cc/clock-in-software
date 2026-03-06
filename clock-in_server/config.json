@@ -3,14 +3,14 @@
     "mariadb_host": "localhost",
     "ldap": {
         "primaryServer": {
-            "name": "ldap-01.sw.ehu.es",
-            "url": "ldap://ldap-01.sw.ehu.es:389"
+            "name": "auth-01.sw.ehu.es",
+            "url": "ldap://auth-01.sw.ehu.es:389"
         },
         "secondaryServer": {
-            "name": "ldap-02.sw.ehu.es",
-            "url": "ldap://ldap-02.sw.ehu.es:389"
+            "name": "auth-02.sw.ehu.es",
+            "url": "ldap://auth-02.sw.ehu.es:389"
         },
-        "bindDN": "cn=admin,dc=sw,dc=ehu,dc=es",
-        "searchBase": "ou=users,dc=sw,dc=ehu,dc=es"
+        "bindDN": "cn=Directory Manager",
+        "searchBase": "cn=users,cn=accounts,dc=sw,dc=ehu,dc=es"
     }
 }
